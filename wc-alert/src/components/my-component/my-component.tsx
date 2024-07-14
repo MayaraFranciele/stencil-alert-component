@@ -1,5 +1,4 @@
 import { Component, Prop, h } from '@stencil/core';
-import { format } from '../../utils/utils';
 
 @Component({
   tag: 'my-component',
@@ -8,25 +7,26 @@ import { format } from '../../utils/utils';
 })
 export class MyComponent {
   /**
-   * The first name
+   * The type 
    */
-  @Prop() first: string;
-
+  @Prop() type: string;
   /**
-   * The middle name
+   * The button state
    */
-  @Prop() middle: string;
-
-  /**
-   * The last name
-   */
-  @Prop() last: string;
-
-  private getText(): string {
-    return format(this.first, this.middle, this.last);
-  }
+  @Prop() btnClose: boolean;
 
   render() {
-    return <div>Hello, World! I'm {this.getText()}</div>;
+    return(
+      <div class="content-alert information">
+        <div class="icon-alert">
+          <div class="icons">⚠️</div>
+          <div class="icons">ℹ️</div>
+        </div>
+        <div class="main-alert">
+          <slot></slot>
+        </div>
+        <div class="btn-close">✖️</div>
+      </div>
+    )
   }
 }

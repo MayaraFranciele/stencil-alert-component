@@ -8,17 +8,13 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface MyComponent {
         /**
-          * The first name
+          * The button state
          */
-        "first": string;
+        "btnClose": boolean;
         /**
-          * The last name
+          * The type
          */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+        "type": string;
     }
 }
 declare global {
@@ -35,17 +31,13 @@ declare global {
 declare namespace LocalJSX {
     interface MyComponent {
         /**
-          * The first name
+          * The button state
          */
-        "first"?: string;
+        "btnClose"?: boolean;
         /**
-          * The last name
+          * The type
          */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+        "type"?: string;
     }
     interface IntrinsicElements {
         "my-component": MyComponent;
